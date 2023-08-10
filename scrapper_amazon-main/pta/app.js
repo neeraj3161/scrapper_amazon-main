@@ -192,7 +192,7 @@ async function sendEmail(price,time) {
     return  date.getHours()+3+':'+ (date.getMinutes()+randomNumber);
   }
 
-  //var interval = setInterval(getDateTime,5000);
+ var interval = setInterval(getDateTime,5000);
 
 async function appendFileTest()
 {
