@@ -95,8 +95,8 @@ async function sendEmail(price,time) {
     let transporter = nodemailer.createTransport({
       
       host: "smtp.gmail.com",
-      port: 587,
-      secure: true, // true for 465, false for other ports
+      port: 465,
+      secure: false, // true for 465, false for other ports
       auth: {
         user: process.env.EmailUserId, // generated ethereal user
         pass: process.env.EmailPassword, // generated ethereal password
