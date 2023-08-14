@@ -120,6 +120,7 @@ async function sendEmail(price,time) {
     // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
   }
   
+  sendEmail(1234,'6:45--Test email');
 
 
   function generateRandomNumbers(max,min)
