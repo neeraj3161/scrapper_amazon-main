@@ -104,19 +104,28 @@ async function sendEmail(price,time) {
     });
   
     // send mail with defined transport object
-    let info = await transporter.sendMail({
+    try {
+      let info = await transporter.sendMail({
+        // ...email configuration...
+      
+    
       from: '"Scrapped result 👻" <foo@example.com>', // sender address
       to: process.env.SendTo, // list of receivers
       subject: "Amazon price scrapper update", // Subject line
       text: "", // plain text body
       html: `<body style="display: flex;align-items: center; justify-content: center;"><div style=""><h1 style="color: cornflowerblue;">Price Update</h1><p style="color: blue;">Price calculated at ${time} is Rs.${price}</p><p style="color: brown;">by <a href="#">EZSoftwareHub.com</a></p></div></body>`, // html body
     });
-  
+    console.log("Message sent: %s", info.messageId);
     console.log("Message sent: %s", info.messageId);
     // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
   
     // Preview only available when sending through an Ethereal account
     console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  } catch (error) {
+    console.error("Error sending email:", error);
+  }
+  
+    
     // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
   }
   
