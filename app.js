@@ -97,10 +97,17 @@ async function sendEmail(price,time) {
       host: "smtp.gmail.com",
       port: 465,
       secure: true, // true for 465, false for other ports
+      secureConnection:false,
+      logger:true,
+      debug:true,
       auth: {
         user: process.env.EmailUserId, // generated ethereal user
         pass: process.env.EmailPassword, // generated ethereal password
       },
+      tls:
+      {
+        rejectUnauthorized:true
+      }
     });
   
     // send mail with defined transport object
